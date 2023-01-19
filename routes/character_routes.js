@@ -1,5 +1,7 @@
 const express =require('express')
 
+const { handle404 } = require("../lib/custom-errors")
+
 const Character = require('../models/character')
 
 const router = express.Router()
@@ -40,11 +42,23 @@ router.post('/players', (req, res, next) => {
         .catch(next)
 })
 
-router.delete("/players", (req, res, next) => {
-    Character.deleteMany(req.body.character)
+router.patch("/players/:id", (req, res, next) => {
+    Character.findById(req.params.id)
+        .then(handle404)
         .then(character => {
-            res.status(200).json({ character: character })
+            return character.updateOne(req.body.character)
         })
+        .then(() => res.sendStatus(204))
+        .catch(next)
+})
+
+router.delete("/players/:id", (req, res, next) => {
+    Character.findById(req.params.id)
+        .then(handle404)
+        .then(character => {
+            return character.deleteOne()
+        })
+        .then(() => res.sendStatus(204))
         .catch(next)
 })
 

@@ -7,6 +7,8 @@ const db = require('./config/db')
 const PORT = 8005
 
 const characterRoutes = require('./routes/character_routes')
+const requestLogger = require('./lib/request-logger')
+const characterSeed = require('./lib/character-seed')
 
 // deprecation warning
 mongoose.set('strictQuery', true)
@@ -21,6 +23,8 @@ mongoose.connect(db, {
 const app = express()
 
 app.use(cors({ origin: `http://127.0.0.1:5502` }))
+
+app.use(requestLogger)
 
 // sending json 
 // need to be able to accept json
