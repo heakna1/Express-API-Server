@@ -1,5 +1,5 @@
 // URI string
-const mongooseBaseName = 'dnd-campaign-tracker'
+const mongooseBaseName = 'skyrim-character-maker'
 
 // if this is a dev env the database name will be dnd-campaign-tracker-development
 // if this is a test env the database name will be dnd-campaign-tracker-test

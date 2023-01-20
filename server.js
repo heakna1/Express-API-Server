@@ -8,7 +8,6 @@ const PORT = 8005
 
 const characterRoutes = require('./routes/character_routes')
 const requestLogger = require('./lib/request-logger')
-const characterSeed = require('./lib/character-seed')
 
 // deprecation warning
 mongoose.set('strictQuery', true)
