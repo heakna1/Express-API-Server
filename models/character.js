@@ -6,19 +6,23 @@ const characterSchema = new Schema(
 	{
 		firstName: {
 			type: String,
-			required: true,
+			required: true
 		},
 		race: {
 			type: String,
-			required: true,
+			required: true
 		},
         stamina: {
 			type: Number,
 			required: true,
+            min: 1,
+            max: 30
 		},
 		strength: {
 			type: Number,
 			required: true,
+            min: 1,
+            max: 30
 		}
 	},
 	{

@@ -30,7 +30,7 @@ router.get('/players/:id', (req, res, next) => {
 })
 
 // CREATE
-// POST /characters
+// POST/characters
 router.post('/players', (req, res, next) => {
     // req.body
     // character: {}
@@ -42,6 +42,8 @@ router.post('/players', (req, res, next) => {
         .catch(next)
 })
 
+// UPDATE
+// PATCH/character
 router.patch("/players/:id", (req, res, next) => {
     Character.findById(req.params.id)
         .then(handle404)
@@ -52,6 +54,8 @@ router.patch("/players/:id", (req, res, next) => {
         .catch(next)
 })
 
+// DESTROY
+// DELETE/characters
 router.delete("/players/:id", (req, res, next) => {
     Character.findById(req.params.id)
         .then(handle404)
